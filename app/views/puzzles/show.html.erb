@@ -1,0 +1,33 @@
+<script src="/javascripts/submission.js"></script>
+
+<div class="container">
+  <ul class="puzzle_box">
+    <% @puzzle.clues.each do |clue| %>
+    <li>
+      <% clue.chars.each.with_index do |c, i| %>
+      <span contenteditable=<%= c == "_" %> class="column-<%= i %>" data-column-class=".column-<%= i %>"><%= c == '_' ? "" : c  %></span>
+      <% end %>
+    </li>
+    <% end %>
+  </ul>
+  <div class="outcome-div"></div>
+  <p class="buttons">
+    <span>
+      <% if @demo == "yes" %>
+      <a class="btn nav" href="/puzzles/demo/<%= @puzzle.id + 1 %>">Next puzzle</a>
+      <% else %>
+      <a class="btn nav" href="/puzzles/<%= rand(@count) + 1 %>">Skip for now</a>
+      <% end %>
+    </span>
+    <span>
+      <form action="/puzzles/<% @puzzle.id %>/hint">
+        <input class="btn" id="hint-button" type="submit" value="Get a hint!">
+      </form>
+    </span>
+    <span>
+      <form id="<%= @puzzle.id %>" class="guess" method="POST">
+        <input class="btn" type="submit" value="Is that it?">
+      </form>
+    </span>
+  </p>
+</div>
