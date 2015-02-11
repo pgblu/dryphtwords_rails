@@ -1,4 +1,4 @@
-class ParserHelper
+class Parser
   attr_reader :word_list, :source, :candidates
 
   def initialize

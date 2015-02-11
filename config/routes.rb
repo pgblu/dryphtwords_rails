@@ -9,12 +9,6 @@ Rails.application.routes.draw do
 
   post '/puzzles/:id/submit/:guess' => 'puzzle#guess'
 
-
-
-
-
-
-
   # Example of regular route:
     # get 'products/:id' => 'catalog#view'
 
