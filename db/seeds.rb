@@ -1,12 +1,9 @@
-require '/app/helpers/parser_helper'
-
-
 User.create!(
   handle:   "ChafingDish",
   password: "secret"
   )
 43.times do
-  num = rand(3) + 2
+  num = rand(3) + 1
   User.create!(
     handle: Faker::Lorem.words(num).map {|word| word.capitalize}.join(""),
     password: "password"
@@ -26,7 +23,7 @@ array_of_puzzles.each do |puzzle|
     clue_string:     clues.downcase,
     solution_string: solutions,
     difficulty:      diff,
-    creator_id:      (1..44).to_a.sample
+    creator_id:      1
     )
 end
 
